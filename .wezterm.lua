@@ -5,7 +5,9 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices.
-config.default_prog = { "C:\\Users\\sh7747\\AppData\\Local\\Programs\\Git\\bin\\bash.exe", "-l", "-i" }
+if wezterm.target_triple:find('windows') then
+	config.default_prog = { "C:\\Users\\sh7747\\AppData\\Local\\Programs\\Git\\bin\\bash.exe", "-l", "-i" }
+end
 
 -- For example, changing the initial geometry for new windows:
 config.initial_cols = 100
@@ -26,6 +28,7 @@ config.colors = {
 		background = 'rgba(0, 0, 0, 0.93)',
 		inactive_tab = {
 			bg_color = 'rgba(0, 0, 0, 0.93)',
+			fg_color = '#888888',
 		},
 	},
 }
