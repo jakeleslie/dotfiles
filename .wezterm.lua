@@ -14,7 +14,11 @@ config.initial_cols = 100
 config.initial_rows = 24
 
 -- or, changing the font size and color scheme.
-config.font_size = 14
+if wezterm.target_triple:find('windows') then
+	config.font_size = 14
+else
+	config.font_size = 18
+end
 config.color_scheme = 'Tokyo Night'
 
 -- tab bar
